@@ -1,0 +1,41 @@
+1. Create New Staff information
+    Description: Save data of new staff and stroed in database.
+    Path: /staff
+    Methode: POST
+    Request Body: JSON
+        {
+            "id": string
+            "password": string
+            "firstName": string
+            "lastName": string
+            "salary": int
+            "role": string
+        }
+    Respond:
+        1. Successfully create data of new staff
+            Status Code: 200 OK
+            Respond Body: JSON
+                {
+                    "id": string
+                    "password": string
+                    "firstName": string
+                    "lastName": string
+                    "salary": int
+                    "role": string
+                }
+
+2.Read Staff information
+    Description: Read data stroed in database.
+
+
+
+3.Edit Staff information
+    Description: Edit data of staff and stroed in database.
+
+
+4.Delete Staff information
+    Description: Delete data in database.
+
+
+5.Find Staff by firstName, lastName or role
+    Description: Find staff information in database.
