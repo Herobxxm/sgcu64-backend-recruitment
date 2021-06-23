@@ -8,26 +8,24 @@
 using namespace std;
 
 map<string, string> P_Number;      // Collect phone number pair with place(P_number, Place)
-map<string, vector<string>> Place; // Collect All place.
+map<string, vector<string>> Place; // Collect All place pair with vecter contain all Phone number
 
 // Text color zone
-void color_text(int color, string text)
-{ // color = 7 white    color = 12 red
+void color_text(int color, string text) // color = 7 white  color = 12 red
+{ 
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
     cout << text << endl;
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 }
 
-// cursor set get zone
-void set_cursor_pos(int x, int y)
+void set_cursor_pos(int x, int y) // set curser
 {
     COORD c;
     c.X = x;
     c.Y = y;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
 }
-
-COORD get_cursor_pos()
+COORD get_cursor_pos()  // get curser
 {
     CONSOLE_SCREEN_BUFFER_INFO screenBufferInfo;
     HANDLE hStd = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -39,7 +37,7 @@ COORD get_cursor_pos()
     return Pos;
 }
 
-string Add_Location(){
+string Add_Location(){ // Add location.( A little bit complicated because my special effect.)
     string Pla;
     COORD A = get_cursor_pos();
     while(true){
@@ -69,7 +67,7 @@ string Add_Location(){
     }
 }
 
-void initialize_data()
+void initialize_data() // Initialize data for the beginning of this program.
 {
     cout << "Welcome to CU_Chana app." << endl;
     cout << "This is the program setup." << endl;
@@ -85,7 +83,7 @@ void initialize_data()
     cout << "_____________________________________________________" << endl;
 }
 
-int choice(vector<string> Ch)
+int choice(vector<string> Ch) // For display choice and return choice you choose
 {
     COORD A = get_cursor_pos();
     int C = 0;
@@ -124,8 +122,8 @@ int choice(vector<string> Ch)
     }
 }
 
-// main menu function
-int menu()
+
+int menu() // main menu function (dont confuse with main function)
 {
     ShowCursor(FALSE);
     cout << "Welcome to Chula Chana!!!!" << endl;
@@ -136,7 +134,7 @@ int menu()
     return Ret;
 }
 
-void CheckIn()
+void CheckIn() // checkin function
 {
     string Ph_Number;
     cout << "Check In" << endl;
@@ -177,7 +175,7 @@ void CheckIn()
     }
 }
 
-void CheckOut()
+void CheckOut() // check out function
 {
     string Ph_Number;
     cout << "Check In" << endl;
@@ -200,7 +198,7 @@ void CheckOut()
     cout << "_____________________________________________________" << endl;
 }
 
-void Check_Population()
+void Check_Population() // Check out function
 {
     cout << "Current Population:" << endl;
     int C = 1;
@@ -213,7 +211,7 @@ void Check_Population()
     cout << "_____________________________________________________" << endl;
 }
 
-void Edit_Place()
+void Edit_Place() // Edit information function
 {
     while (true)
     {
@@ -223,8 +221,9 @@ void Edit_Place()
         COORD B = get_cursor_pos();
         set_cursor_pos(B.X, B.Y);
         vector<string> Select = {"Add location", "Remove location", "Exit"};
-        int Ch = choice(Select);
-        if (Ch == 0)
+        int Ch = choice(Select); // get your choice
+        // if choice == ???
+        if (Ch == 0) // Add location
         {
             string Ad = Add_Location();
             set_cursor_pos(A.X, A.Y);
@@ -234,7 +233,7 @@ void Edit_Place()
             cout << " Add " << Ad << " as a new location." << endl;
             cout << "_____________________________________________________" << endl;
         }
-        if (Ch == 1)
+        if (Ch == 1) // Remove location
         {
             set_cursor_pos(B.X, B.Y);
             for (int i = 0; i < 6; i++)
@@ -273,7 +272,7 @@ void Edit_Place()
                 cout << "_____________________________________________________" << endl;
             }
         }
-        if (Ch == 2)
+        if (Ch == 2) // Exit this menu
         {
             set_cursor_pos(A.X, A.Y);
             for (int i = 0; i < 6; i++)
@@ -286,22 +285,22 @@ void Edit_Place()
 
 int main()
 {
-    initialize_data();
+    initialize_data(); // initialize program
     while (true)
     {
-        int X = menu();
-        switch (X)
+        int X = menu(); // Main menu
+        switch (X) // choice???
         {
-        case 0:
+        case 0: // Check in
             CheckIn();
             break;
-        case 1:
+        case 1: // Check out
             CheckOut();
             break;
-        case 2:
+        case 2: // Check people
             Check_Population();
             break;
-        case 3:
+        case 3: // Edit menu( it is optional. )
             Edit_Place();
             break;
         }

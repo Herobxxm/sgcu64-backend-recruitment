@@ -114,7 +114,8 @@ void Animated_TimeCount(vector<int> Time){ // Animated clock
         Sleep(700);
         Clear_console();
         Sleep(300);
-        if(Time_Count(Time))break;
+        if(Time_Count(Time))
+            break;// Time reach 00:00:00
     }
     Clear_console();
     cout << "                    ___    ___   ___    _____   " << endl;
