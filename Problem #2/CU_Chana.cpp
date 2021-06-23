@@ -102,7 +102,7 @@ int choice(vector<string> Ch) // For display choice and return choice you choose
         }
         while (true)
         {
-            Key = _getch();
+            Key = _getch(); // Checking input aero key or enter key
             if (Key == 72 && (C > 0))
             {
                 C--;

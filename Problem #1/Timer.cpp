@@ -159,7 +159,7 @@ int main(){
         cin >> Choice;
         if(Choice == "n" || Choice == "N")break;
         if(Choice == "y" || Choice == "Y"){
-            Animated_TimeCount(Time_digit); // Animated clock
+            Animated_TimeCount(Time_digit); // Animated clock function
             break;
         }
         cout << "Plese insert only /'y/' or /'n/'" << endl; 
